@@ -7,7 +7,7 @@
 |
 */
 
-import UsersController from '#controllers/users_controller'
+import ProjectsController from '#controllers/projects_controller'
 import router from '@adonisjs/core/services/router'
 
 router.get('/', async () => {
@@ -16,4 +16,12 @@ router.get('/', async () => {
   }
 })
 
-router.get('/users', [UsersController, 'index'])
+router.post('/project', [ProjectsController, "store"])
+
+router.get('/project/all', [ProjectsController, "index"])
+
+router.get('project/:id', [ProjectsController, "show"])
+
+router.put('project/:id', [ProjectsController, "update"])
+
+router.delete('project/:id', [ProjectsController, "destroy"])
