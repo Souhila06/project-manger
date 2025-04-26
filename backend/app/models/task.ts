@@ -7,7 +7,9 @@ import Priority from '#models/priority'
 
 
 export default class Task extends BaseModel {
-  @hasOne(() => Project , { foreignKey: 'project_id'})
+  static table = "task"
+
+  @hasOne(() => Project, { foreignKey: 'project_id' })
   declare prject: HasOne<typeof Project>
 
   @hasOne(() => Status)
@@ -23,7 +25,7 @@ export default class Task extends BaseModel {
   declare title: string
 
   @column()
-  declare decsription: string
+  declare description: string
 
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime
