@@ -1,11 +1,13 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column,hasMany } from '@adonisjs/lucid/orm'
+import { BaseModel, column, hasMany } from '@adonisjs/lucid/orm'
 import type { HasMany } from '@adonisjs/lucid/types/relations'
 import Task from '#models/task'
 
 
 export default class Status extends BaseModel {
-  @hasMany(() => Task, { foreignKey: 'task_id'})
+  static table = "status"
+
+  @hasMany(() => Task, { foreignKey: 'task_id' })
   declare task: HasMany<typeof Task>
 
   @column({ isPrimary: true })
